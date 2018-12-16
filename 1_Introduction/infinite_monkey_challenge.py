@@ -34,38 +34,42 @@ than the previous one.
 """
 
 from random import choice
+from string import ascii_lowercase
 
+ALLOWED_CHARS = ascii_lowercase + ' '
 
-def generate(values):
-    """Generate a 28 character long string by choosing random letters
-    from the 26 letter alphabet plus the space.
-    """
-    string = ''
-
-    for _ in range(len(values)):
-        string += choice(values)
-
-    return string
+def generate(n):
+    return ''.join(choice(ALLOWED_CHARS) for _ in range(n))
 
 def score(string, goal):
-    """Compare randomly generated string to the goal
+    """Compare randomly generated string to the goal, check how many
+    letters are correct and return
     """
-    return string == goal
+    check_counter = 0
+    string = generate(values)
 
-def run():
-    """
-    Repeatedly call generate and score, if letters are correct
+    for i in range(len(string)):
+        if string[i] == goal[i]:
+            check_counter += 1
+
+    return check_counter
+
+def run(values, goal):
+    """ Repeatedly call generate and score, if letters are correct
     return
     """
-
-    goal = 'methinks it is like a weasel'
-    values = 'abcdefghijklmnopqrstuvwxyz '
+    string= ''
+    cache = {}
     run_counter = 0
 
-    #if not score(generate(values), goal):
-    #    counter += 1
+    while not score(string, goal) == len(goal):
+        string = generate(values)
+        run_counter += 1
+        if run_counter % 1000 == 0:
+            print(run_counter)
+    print('Matching string,', string, 'found at iteration', run_counter)
 
-    pass
-
-
-
+if __name__ == '__main__':
+    values = ascii_lowercase + ' '
+    goal = 'methinks it is like a weasel'
+    run(values, goal)
