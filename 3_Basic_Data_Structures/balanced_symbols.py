@@ -7,37 +7,41 @@ For example
 {{[[(())]] => False
 """
 
+from stack import Stack
 
-openers = "{[("
-closers = "}])"
-
-class Stack:
-
-    def __init__(self):
-        self.items = []
-
-    def push(self, item):
-        return self.items.append(item)
-
-    def pop(self):
-        return self.items[len(self.items) - 1]
-
-    def is_empty(self):
-        return self.items == []
+OPENERS = "{[("
+CLOSERS = "}])"
 
 
 def symbol_check(mystr):
+    # A symbol string is balanced if every opening symbol has a
+    # matching closing symbol.  This algorithm uses a stack to
+    # store each opening symbol, pushing it onto the stack. 
+    # when a closing symbol appears, check if the top (pop)
+    # of the stack has a matching opening symbol, if it does,
+    # pop the top off and continue moving forwrad, if not
+    # the string is not balanced.
+
+    s = Stack()
+
+    for char in mystr:
+        if char in OPENERS:
+            s.push(char)
+        else:
+            top = s.pop()
+            print(CLOSERS)
+            print(CLOSERS.index(top))
+            if OPENERS.index(char) == CLOSERS.index(top):
+                return False
+    return s.is_empty()
+
+def match(open, close):
     pass
 
-#    s = Stack()
-#
-#    for char in mystr:
-#        if char in openers:
-#            s.push(char)
-#        elif:
-#            s.pop().index() == 
-
 def main():
+    print(symbol_check("{}"))
+    print(symbol_check("[]"))
+    print(symbol_check("()"))
     print(symbol_check("{{[][]}()}"))
     print(symbol_check("{{[[(())]]"))
 

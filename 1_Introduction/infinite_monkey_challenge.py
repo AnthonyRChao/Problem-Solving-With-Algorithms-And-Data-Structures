@@ -42,7 +42,8 @@ def generate(n):
     return ''.join(choice(ALLOWED_CHARS) for _ in range(n))
 
 def score(string, goal):
-    """Compare randomly generated string to the goal, check how many
+    """
+    Compare randomly generated string to the goal, check how many
     letters are correct and return
     """
     check_counter = 0
@@ -55,7 +56,8 @@ def score(string, goal):
     return check_counter
 
 def run(values, goal):
-    """ Repeatedly call generate and score, if letters are correct
+    """
+    Repeatedly call generate and score, if letters are correct
     return
     """
     string= ''
@@ -69,7 +71,11 @@ def run(values, goal):
             print(run_counter)
     print('Matching string,', string, 'found at iteration', run_counter)
 
-if __name__ == '__main__':
+def main():
     values = ascii_lowercase + ' '
     goal = 'methinks it is like a weasel'
     run(values, goal)
+
+
+if __name__ == '__main__':
+    main()
