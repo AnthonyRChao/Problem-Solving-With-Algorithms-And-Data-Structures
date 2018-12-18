@@ -30,7 +30,7 @@ class Stack:
         """
         Check if Stack is empty
         """
-        return len(self.items) == []
+        return self.items == []
 
     def push(self, item):
         """
@@ -42,7 +42,7 @@ class Stack:
         """
         Remove item from top of Stack
         """
-        return self.pop()
+        return self.items.pop()
 
     def peek(self):
         """
