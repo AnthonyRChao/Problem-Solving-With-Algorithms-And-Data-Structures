@@ -17,6 +17,7 @@ def anagram(word1, word2):
 
     return True
 
+
 def main():
     print(anagram('python', 'typhon'))
     print(anagram('heart', 'earth'))
