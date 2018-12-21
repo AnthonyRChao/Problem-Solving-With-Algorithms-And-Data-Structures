@@ -22,15 +22,19 @@ class Queue:
         self.items = []
 
     def enqueue(self, item):
+        """Adds item to the front of the queue."""
         return self.items.insert(0, item)
 
     def dequeue(self):
+        """Removes item from the back of the queue."""
         return self.items.pop()
 
     def is_empty(self):
+        """Returns True if the queue is empty, False otherwise."""
         return self.items == []
 
     def size(self):
+        """Returns size as an integer of the queue."""
         return len(self.items)
 
 
