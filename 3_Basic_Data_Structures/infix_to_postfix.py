@@ -33,8 +33,8 @@ tokens are the single-character identifiers A, B, C, and so on.
 3d. If value is an operator, push it on to the stack. However, if there are any
     operators with higher or equal precedence on the stack, first pop them and
     append them to the end of the output list.
-4. After iterating through the input expression list, check the stack and append
-   any remaining operators to the end of the output list.
+4. After iterating through the input expression list, check the stack and
+   append any remaining operators to the end of the output list.
 
 """
 
@@ -52,9 +52,52 @@ tokens are the single-character identifiers A, B, C, and so on.
 # iterate through the space delimited expression, when you encounter
 # operator, what do you do? add it to the stack
 # do we need to parenthesize the expression?
-# 
 
-def infixToPostfix(expr):
+from string import ascii_uppercase, digits
+from stack import Stack
+
+
+def infix_to_postfix(expr):
+    """Convert an infix expression to its postfix equivalent."""
 
     opstack = Stack()
     vals = expr.split()
+    result = []
+    prec = {"*": 3,
+            "/": 3,
+            "+": 2,
+            "-": 2,
+            "(": 1,
+            }
+
+    for val in vals:
+        if val in ascii_uppercase or val in digits:
+            result.append(val)
+        elif val == "(":
+            opstack.push(val)
+        elif val == ")":
+            top = opstack.pop()
+            while top != "(":
+                result.append(top)
+                top = opstack.pop()
+        else:
+            while not opstack.is_empty() and prec[opstack.peek()] >= prec[val]:
+                result.append(opstack.pop())
+            opstack.push(val)
+
+    while not opstack.is_empty():
+        result.append(opstack.pop())
+
+    return " ".join(result)
+
+
+def main():
+    """Main function."""
+
+    print(infix_to_postfix("( A + B ) * ( C + D )"))
+    print(infix_to_postfix("( A + B ) * C"))
+    print(infix_to_postfix("A + B * C"))
+
+
+if __name__ == "__main__":
+    main()
