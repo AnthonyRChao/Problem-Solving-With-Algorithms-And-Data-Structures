@@ -97,6 +97,7 @@ def main():
     print(infix_to_postfix("( A + B ) * ( C + D )"))
     print(infix_to_postfix("( A + B ) * C"))
     print(infix_to_postfix("A + B * C"))
+    print(infix_to_postfix("10 + 3 * 5 / ( 16 - 4 )"))
 
 
 if __name__ == "__main__":

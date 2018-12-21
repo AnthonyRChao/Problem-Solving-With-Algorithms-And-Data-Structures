@@ -19,39 +19,35 @@ pages.
 
 
 class Stack:
-    """
-    An implementation of the Stack data structure
-    """
+    """ An implementation of the Stack data structure."""
 
     def __init__(self):
         self.items = []
 
     def is_empty(self):
-        """
-        Check if Stack is empty
-        """
+        """Check if Stack is empty."""
         return self.items == []
 
     def push(self, item):
-        """
-        Add item to top of Stack
-        """
+        """Add item to top of Stack."""
         return self.items.append(item)
 
     def pop(self):
-        """
-        Remove item from top of Stack
-        """
+        """Remove item from top of Stack."""
         return self.items.pop()
 
     def peek(self):
-        """
-        Look at item from top of Stack
-        """
+        """Look at item from top of Stack."""
         return self.items[len(self.items) - 1]
 
     def size(self):
-        """
-        Return size of Stack
-        """
+        """Return size of Stack."""
         return len(self.items)
+
+    def __str__(self):
+        """Because of using list as parent class for stack, our last element
+        will be first for stack, according to FIFO principle. So, if we will
+        use parent's implementation of str(), we will get reversed order of
+        elements.
+        """
+        return "Stack [{}]".format(", ".join(self.items))
