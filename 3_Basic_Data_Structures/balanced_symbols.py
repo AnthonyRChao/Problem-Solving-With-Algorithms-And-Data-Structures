@@ -14,31 +14,32 @@ CLOSERS = "}])"
 
 
 def symbol_check(mystr):
-    # A symbol string is balanced if every opening symbol has a
-    # matching closing symbol.  This algorithm uses a stack to
-    # store each opening symbol, pushing it onto the stack. 
-    # when a closing symbol appears, check if the top (pop)
-    # of the stack has a matching opening symbol, if it does,
-    # pop the top off and continue moving forwrad, if not
-    # the string is not balanced.
+    """
+    A symbol string is balanced if every opening symbol has a
+    matching closing symbol.  This algorithm uses a stack to
+    store each opening symbol, pushing it onto the stack.
+    when a closing symbol appears, check if the top (pop)
+    of the stack has a matching opening symbol, if it does,
+    pop the top off and continue moving forwrad, if not
+    the string is not balanced.
+    """
 
-    s = Stack()
+    stack = Stack()
 
     for char in mystr:
         if char in OPENERS:
-            s.push(char)
+            stack.push(char)
         else:
-            top = s.pop()
-            print(CLOSERS)
-            print(CLOSERS.index(top))
-            if OPENERS.index(char) == CLOSERS.index(top):
+            top = stack.pop()
+            if OPENERS.index(top) != CLOSERS.index(char):
                 return False
-    return s.is_empty()
+    return stack.is_empty()
 
-def match(open, close):
-    pass
 
 def main():
+    """
+    Main method
+    """
     print(symbol_check("{}"))
     print(symbol_check("[]"))
     print(symbol_check("()"))
