@@ -1,5 +1,4 @@
 """Returns the output of a given postfix expression."""
-from string import digits
 from stack import Stack
 
 
@@ -8,6 +7,7 @@ def post_eval(expr):
 
     expr = expr.split(" ")
     operand_stack = Stack()
+    digits = [str(x) for x in range(100)]
 
     for val in expr:
         if val in digits:
@@ -24,13 +24,13 @@ def do_math(a, b, operator):
     """Helper function that performs computation between two numbers."""
 
     if operator == "+":
-        return int(a) + int(b)
+        return int(b) + int(a)
     elif operator == "-":
-        return int(a) - int(b)
+        return int(b) - int(a)
     elif operator == "*":
-        return int(a) * int(b)
+        return int(b) * int(a)
     elif operator  == "/":
-        return int(a) / int(b)
+        return int(b) // int(a)
 
 
 def main():

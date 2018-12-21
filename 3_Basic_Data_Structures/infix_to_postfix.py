@@ -53,7 +53,7 @@ tokens are the single-character identifiers A, B, C, and so on.
 # operator, what do you do? add it to the stack
 # do we need to parenthesize the expression?
 
-from string import ascii_uppercase, digits
+from string import ascii_uppercase
 from stack import Stack
 
 
@@ -62,8 +62,10 @@ def infix_to_postfix(expr):
 
     opstack = Stack()
     vals = expr.split()
+    digits = [str(x) for x in range(100)]
     result = []
-    prec = {"*": 3,
+    prec = {"**":4,
+            "*": 3,
             "/": 3,
             "+": 2,
             "-": 2,
@@ -98,6 +100,7 @@ def main():
     print(infix_to_postfix("( A + B ) * C"))
     print(infix_to_postfix("A + B * C"))
     print(infix_to_postfix("10 + 3 * 5 / ( 16 - 4 )"))
+    print(infix_to_postfix("5 * 3 ** ( 4 - 2 )"))
 
 
 if __name__ == "__main__":
