@@ -37,8 +37,10 @@ def dec_to_bin(num):
 
     return result
 
+
 def main():
     print(dec_to_bin(233))
+
 
 if __name__ == "__main__":
     main()
