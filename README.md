@@ -1,6 +1,3 @@
-# Problem-Solving-With-Algorithms-And-Data-Structures
-Problem Solving With Algorithms And Data Structures in Python
-
 ## Source:
 - https://runestone.academy/runestone/static/pythonds/index.html
 
