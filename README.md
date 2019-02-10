@@ -5,7 +5,7 @@
 - To review the ideas of computer science, programming, and problem-solving.
 - Python
 - Runtime and Space Analysis
-- Basic Data Structures (Stack, Queue, Deque, Unordered List, Ordered List
+- Basic Data Structures (Stack, Queue, Deque, Unordered List, Ordered List)
 - Recursion (3 Laws, Stack Frames, Tower Of Hanoi)
 - Sorting and Searching (Sequential, Binary, Hashing, Map ADT, Bubble, Selection, Insert, Shell, Merge, Quick)
 - Trees (Preorder, Inorder, Postorder, Priority Queue with Binary Heap, BSTs, AVL Trees)
