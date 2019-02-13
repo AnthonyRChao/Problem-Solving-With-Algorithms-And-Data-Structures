@@ -13,3 +13,9 @@
 
 ## Why do it?
 - Learn, implement, and understand basic Data Structures and Algorithms to improve my knowledge of Computer Science.
+
+## Started 
+- 12/12/18
+
+## Completed
+- 1/31/19
